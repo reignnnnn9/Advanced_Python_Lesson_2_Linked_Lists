@@ -40,38 +40,36 @@ class LinkedList:
         """Adding a node at a position (0-index)"""
         new_node = Node(data) #Creates new node
 
+        current = self.head # Starts from front of list
+        counter = 0
+        while counter < position - 1:   # This traverses down the list to the object just infront of the position we want to add to 
+            current = current.next
+            counter += 1
+
+        new_node.next = current.next # New node's next is equal to to current node's next
+        current.next = new_node # Current node's next changes to new node 
+
+    def get_at_position(self,position):
         current = self.head
         counter = 0
+        while counter < position:
+            current = current.next
+            counter += 1
+
+        return current.data
+    
+    def delete_at_position(self, position):
+        current = self.head
+        counter = 0
+        # Move to the node just infront of the node we want to remove
         while counter < position - 1:
             current = current.next
             counter += 1
 
-        new_node.next = current.next # New node points to current.next node
-
-# ========================NEED TO REVIEW==================================================
-    #     current.next = new_node # Current node points to new node 
-
-    # def get_at_position(self,position):
-    #     current = self.head
-    #     counter = 0
-    #     while counter < position:
-    #         current = current.next
-    #         counter += 1
-
-    #     return current.data
-    
-    # def delete_at_position(self, position):
-    #     current = self.head
-    #     counter = 0
-    #     # Move to the node just infront of the node we want to remove
-    #     while counter < position - 1:
-    #         current = current.next
-    #         counter += 1
-
-    #     # Set the current nodes next, to the node we want to remove's next
-    #     removing = current.next
-    #     current.next = current.next.next
-    #     return removing
+        # Set the current nodes next, to the node we want to remove's next
+        removing = current.next
+        current.next = current.next.next
+        return removing
 
 
 songs = LinkedList()
@@ -84,9 +82,11 @@ songs.append("Blind Eyes Red")
 songs.append("Freak")
 
 songs.traverse()
-
+                        #position,    enter the data you want to add
 songs.insert_at_postition(2, "Communication")
 
 songs.traverse()
 print(songs.get_at_position(4))
 
+songs.delete_at_position((1))
+songs.traverse()
