@@ -46,7 +46,33 @@ class LinkedList:
             current = current.next
             counter += 1
 
-            new_node.next = current.next
+        new_node.next = current.next # New node points to current.next node
+
+# ========================NEED TO REVIEW==================================================
+    #     current.next = new_node # Current node points to new node 
+
+    # def get_at_position(self,position):
+    #     current = self.head
+    #     counter = 0
+    #     while counter < position:
+    #         current = current.next
+    #         counter += 1
+
+    #     return current.data
+    
+    # def delete_at_position(self, position):
+    #     current = self.head
+    #     counter = 0
+    #     # Move to the node just infront of the node we want to remove
+    #     while counter < position - 1:
+    #         current = current.next
+    #         counter += 1
+
+    #     # Set the current nodes next, to the node we want to remove's next
+    #     removing = current.next
+    #     current.next = current.next.next
+    #     return removing
+
 
 songs = LinkedList()
 print(songs.is_empty()) # Will return True
