@@ -72,7 +72,7 @@ class MusicPlaylist:
         removing = self.songs.delete_at_position(self.current_position)
         print(f"Removed Song: {removing.data.title}")
     
-    def find_songs_by_artist(self, artist_name):
+    #def find_songs_by_artist(self, artist_name):
         """
         Find all songs by a specific artist        
         Args:
